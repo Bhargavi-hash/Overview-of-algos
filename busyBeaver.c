@@ -156,46 +156,53 @@ void Game()
     Ttable[0][2].head = 'L';                            Ttable[1][2].head = 'L';
     Ttable[0][2].state = 2;                             Ttable[1][2].state = 0;
 
-    //***************************** Printing busy beaver to the console **************************
-
-    Print_TT();
-
-    //******************************* Displaying tape and header ****************************
-
-    printf("\033[1;35m");
-    printf("-->> ");
-    printf("\033[0m");
-
-    printf("\033[0;37m");
-    printf("Tape condition at the start");
-    printf("\033[0m");
-
-    //displayTape(); // Tape condition at the start
-
     do
     {
+        system("clear");
+        Print_TT();
+
+        // Printed only at step 0
+        if(step == 0)
+        {
+            printf("\033[1;35m");
+            printf("-->> ");
+            printf("\033[0m");
+
+            printf("\033[0;37m");
+            printf("Tape condition at the start");
+            printf("\033[0m");
+        }
+        
         GameStats();
         
         printf("\033[1;32m");
         printf("\t*******************************************************************\n");
         printf("\033[0m");
 
-        step = step + 1;
+        step = step + 1;                                        // Incrementing step by 1
 
         int Read = tape[headCell];
-        tape[headCell] = Ttable[tape[headCell]][state].elem;
-
-        if (Ttable[Read][state].head == 'R')
+        tape[headCell] = Ttable[tape[headCell]][state].elem;    // Overwriting the tape element with the
+                                                                // element given in transition table.
+        if (Ttable[Read][state].head == 'R')                    // Positioning head pointer
             headCell = headCell + 1;
         else
             headCell = headCell - 1;
         
-        state = Ttable[Read][state].state;
+        state = Ttable[Read][state].state;                      // Changing state
 
-        sleep(4);
+        sleep(2);
     }
     while(state != 3);
+    
+    // At HALT state
+    system("clear");
+    Print_TT();
     GameStats();
+
+    printf("\033[1;32m");
+    printf("\t*******************************************************************\n");
+    printf("\033[0m");
     
     return;
 }
@@ -218,7 +225,7 @@ int main()
     if(input != play)
     {
         printf("\033[1;32m");
-        printf("\t********************** \033[1;31mThank You :)\033[1;32m **************************\n");
+        printf("\n\n\t\t\t\t\033[1;31mThank You :)\033\n\n");
         printf("\033[0m");   
 
         return 0;
@@ -227,7 +234,7 @@ int main()
     Game();
 
     printf("\033[1;32m");
-    printf("\t********************** \033[1;31mThank You :)\033[1;32m **************************\n");
+    printf("\n\n\t\t\t\t\033[1;31mThank You :)\033\n\n");
     printf("\033[0m");   
 
     return 0;
