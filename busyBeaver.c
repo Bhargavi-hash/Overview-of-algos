@@ -43,19 +43,19 @@ int state;
 
 void Print_TT()
 {
-    printf("\033[1;31m");
+    printf("\033[1;31m");                   // Color coding: RED color
     printf("\t-------------------------------------------------------------------\n");
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 
-    printf("\033[1;32m");
+    printf("\033[1;32m");                   // Color coding: GREEN color
     printf("\t\t\tOur 3-state 2-symbol Transition table\n");
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 
-    printf("\033[1;31m");
+    printf("\033[1;31m");                   // Color coding: RED color
     printf("\t-------------------------------------------------------------------\n\n");
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 
-    printf("\033[1;34m");
+    printf("\033[1;34m");                   // Color coding: BLUE color
     printf("\t\t\t+---------+---------+--------+-------+\n");
     printf("\t\t\t|         |    A    |    B   |   C   |\n");
     printf("\t\t\t+---------+---------+--------+-------+\n");
@@ -63,12 +63,12 @@ void Print_TT()
     printf("\t\t\t+---------+---------+--------+-------+\n");
     printf("\t\t\t|    1    |   1RH   |   1RB  |  1LA  |\n");
     printf("\t\t\t+---------+---------+--------+-------+\n\n");
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 
-    printf("\033[1;31m");
+    printf("\033[1;31m");                   // Color coding: RED color
     printf("\t-------------------------------------------------------------------\n");
     printf("\t-------------------------------------------------------------------\n");
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 
     return;
 }
@@ -80,15 +80,15 @@ void displayTape()
     {
         if (i == headCell)
         {
-            printf("\033[1;31m");
+            printf("\033[1;31m");           // Color coding: RED color
             printf("%d ", tape[i]);
-            printf("\033[0m");
+            printf("\033[0m");              // Back to default color
         }
         else
         {
-            printf("\033[0;33m");
+            printf("\033[0;33m");           // Color coding: YELLOW color
             printf("%d ", tape[i]);
-            printf("\033[0m");
+            printf("\033[0m");              // Back to default color
         }
     }
     printf("\n");
@@ -98,9 +98,9 @@ void displayTape()
     {
         if (j == headCell)
         {
-            printf("\033[1;36m");
-            printf("\u2191");
-            printf("\033[0m");
+            printf("\033[1;36m");           // Color coding: CYAN color
+            printf("\u2191");               // Unicode of 'UP Arrow' symbol
+            printf("\033[0m");              // Back to default
             printf("\n");
             break;
         }
@@ -114,23 +114,23 @@ void GameStats()
 
     printf("\n");
 
-    printf("\033[1;35m");
+    printf("\033[1;35m");                   // Color coding: PURPLE color
     printf("-->> ");
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 
-    printf("\033[1;34m");
+    printf("\033[1;34m");                   // Color coding: BLUE color
     printf("Step: ");
-    printf("\033[0m");
-    printf("\033[1;31m");
+    printf("\033[0m");                      // Back to default color
+    printf("\033[1;31m");                   // Color coding: RED color
     printf("%d ; ", step);
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 
-    printf("\033[1;34m");
+    printf("\033[1;34m");                   // Color coding: BLUE color
     printf("State: ");
-    printf("\033[0m");
-    printf("\033[1;31m");
+    printf("\033[0m");                      // Back to default color
+    printf("\033[1;31m");                   // Color coding: RED color
     printf("%c\n\n", state == 0 ? 'A' : (state == 1 ? 'B' : (state == 2 ? 'C' : 'H')));
-    printf("\033[0m");
+    printf("\033[0m");                      // Back to default color
 }
 
 void Game()
